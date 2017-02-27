@@ -10,7 +10,7 @@ version_prefix: "{%- if ansible_distribution == 'RedHat' -%}
 
 aerospike:
   tarball:
-    url: https://aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
+    url: https://www.aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
     unpack:
       path: /tmp
 
