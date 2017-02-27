@@ -1,8 +1,8 @@
 aerospike_version: 3.11.1.1
 
-version_prefix: "{%- if ansible_os_family == 'RedHat' -%}
+version_prefix: "{%- if ansible_distribution == 'RedHat' -%}
                    el
-                 {%- elif ansible_os_family == 'Debian' -%}
+                 {%- elif ansible_distribution == 'Debian' -%}
                    debian
                  {%- else -%}
                    ubuntu
@@ -10,7 +10,7 @@ version_prefix: "{%- if ansible_os_family == 'RedHat' -%}
 
 aerospike:
   tarball:
-    url: http://aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
+    url: https://aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
     unpack:
       path: /tmp
 
