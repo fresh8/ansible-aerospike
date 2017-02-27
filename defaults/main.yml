@@ -1,4 +1,4 @@
-as_version: 3.9.0
+aerospike_version: 3.11.1.1
 
 version_prefix: "{%- if ansible_os_family == 'RedHat' -%}
                    el
@@ -10,7 +10,7 @@ version_prefix: "{%- if ansible_os_family == 'RedHat' -%}
 
 aerospike:
   tarball:
-    url: http://aerospike.com/download/server/{{ as_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
+    url: http://aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
     unpack:
       path: /tmp
 
@@ -21,8 +21,8 @@ aerospike:
 
   setup:
     files:
-      folder: aerospike-server-community-{{ as_version }}-{{ version_prefix }}{{ ansible_distribution_major_version }}
-      patterns: "aerospike-tools-{{ as_version }}*,aerospike-server-community-{{ as_version }}*"
+      folder: aerospike-server-community-{{ aerospike_version }}-{{ version_prefix }}{{ ansible_distribution_major_version }}
+      patterns: "aerospike-tools-{{ aerospike_version }}*,aerospike-server-community-{{ aerospike_version }}*"
 
   log:
     directory: /var/log/aerospike
