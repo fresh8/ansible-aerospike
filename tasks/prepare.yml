@@ -1,5 +1,7 @@
 ---
 
+- include: "{{ ansible_os_family | lower }}/prepare.yml"
+
 - name: Check pip
   pip:
     name: pip

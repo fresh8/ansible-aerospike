@@ -1,0 +1,7 @@
+- name: Install dependencies for the bcrypt pip package
+  apt: name={{ item }} state=latest cache_valid_time=300
+  with_items:
+    - build-essential
+    - libssl-dev
+    - libffi-dev
+    - python-dev
