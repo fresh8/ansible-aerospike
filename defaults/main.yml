@@ -8,6 +8,12 @@ version_prefix: "{%- if ansible_distribution == 'RedHat' -%}
                    ubuntu
                  {%- endif -%}"
 
+folder_version: "{%- if ansible_distribution == 'Ubuntu' -%}
+                   {{ ansible_distribution_version }}
+                 {%- else -%}
+                   {{ ansible_distribution_major_version }}
+                 {% endif %}"
+                    
 aerospike:
   tarball:
     url: https://www.aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ version_prefix }}{{ ansible_distribution_major_version }}
@@ -21,8 +27,8 @@ aerospike:
 
   setup:
     files:
-      folder: aerospike-server-community-{{ aerospike_version }}-{{ version_prefix }}{{ ansible_distribution_major_version }}
-      patterns: "aerospike-tools-{{ aerospike_version }}*,aerospike-server-community-{{ aerospike_version }}*"
+      folder: aerospike-server-community-{{ aerospike_version }}-{{ version_prefix }}{{ folder_version }}
+      patterns: "aerospike-tools-*,aerospike-server-community-*"
 
   log:
     directory: /var/log/aerospike
